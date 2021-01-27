@@ -34,15 +34,16 @@ def main():
 
     (low, high) = configure_range()
     secret = generate_secret(low, high)
-
+    guessCounter = 0
     while True:
         guess = get_guess()
+        guessCounter += 1 # Counts the number of guesses
         result = check_guess(guess, secret)
         print(result)
 
         if result == correct:
             break
-
+    print(f'\nNumber of guesses: {guessCounter}') # Prints the number of guesses
 
 if __name__ == '__main__':
     main()
