@@ -17,7 +17,11 @@ def generate_secret(low, high):
 
 def get_guess():
     '''get user's guess'''
-    return int(input('Guess the secret number? '))
+    guess = input('\nGuess the secret number? ')
+    while not guess.isnumeric(): # Loops while the value is non numeric
+        print("\nError: You have entered a non numeric character\n") #Prints the error for entering non numeric value
+        guess = input('Guess the secret number? ') # Prompts user to re enter the correct value
+    return int(guess)
 
 
 def check_guess(guess, secret):
